@@ -11,10 +11,9 @@ class User < ApplicationRecord
   validate :check_old, if: :password_changed?, on: :update
   attr_accessor :old_password
 
-  enum role: [:startup, :investor]
+  enum role: [:ceo]
 
   has_many :tokens, dependent: :destroy
-  has_many :forgot_password_attempts, dependent: :destroy
   has_one :company, dependent: :destroy
 
   SALT = ENV.fetch("PASSWORD_SALT")

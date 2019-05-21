@@ -1,7 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :authorize_startup, only: [:create, :update, :destroy]
+  before_action :authorize_user, only: [:create, :update, :destroy]
   before_action :set_company, only: [:show, :update, :destroy]
-  before_action :check_company_ownership, only: [:update, :destroy]
   swagger_controller :company, "Startup company"
 
   # GET /companies/1
@@ -83,8 +82,8 @@ class CompaniesController < ApplicationController
   end
 
   private
-    def authorize_startup
-      @user = AuthorizationHelper.authorize_startup(request)
+    def authorize_user
+      @user = AuthorizationHelper.authorize(request)
 
       if @user == nil
         render status: :unauthorized and return
@@ -100,12 +99,6 @@ class CompaniesController < ApplicationController
         @company = Company.find(params[:id])
       rescue
         render status: :not_found
-      end
-    end
-
-    def check_company_ownership
-      unless @company.user_id == @user.id
-        render json: {errors: :WRONG_COMPANY_ID}, status: :forbidden
       end
     end
 
