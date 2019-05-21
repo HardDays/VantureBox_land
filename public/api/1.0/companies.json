@@ -39,6 +39,163 @@
               "required": false
             },
             {
+              "paramType": "form",
+              "name": "is_interested_in_access",
+              "type": "boolean",
+              "description": "We are you interested in",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "is_interested_in_insights",
+              "type": "boolean",
+              "description": "We are you interested in",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "is_interested_in_capital",
+              "type": "boolean",
+              "description": "We are you interested in",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "is_interested_in_marketplace",
+              "type": "boolean",
+              "description": "We are you interested in",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "markets",
+              "type": "string",
+              "description": "",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+                  "financial_markets"
+                ]
+              }
+            },
+            {
+              "paramType": "form",
+              "name": "founded_in",
+              "type": "integer",
+              "description": "Founded in",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "current_stage",
+              "type": "string",
+              "description": "Current stage",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+                  "round_a",
+                  "round_b"
+                ]
+              }
+            },
+            {
+              "paramType": "form",
+              "name": "evaluation",
+              "type": "string",
+              "description": "Evaluation",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "is_revenue_consumer",
+              "type": "boolean",
+              "description": "Source of revenue",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "is_revenue_wholesale",
+              "type": "boolean",
+              "description": "Source of revenue",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "is_revenue_other",
+              "type": "boolean",
+              "description": "Source of revenue",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "investor_deck_link",
+              "type": "string",
+              "description": "Investor deck",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "investor_deck_file",
+              "type": "string",
+              "description": "Investor deck",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "current_revenue",
+              "type": "string",
+              "description": "Current revenue",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+                  "zero",
+                  "two_hundred",
+                  "million",
+                  "universe"
+                ]
+              }
+            },
+            {
+              "paramType": "form",
+              "name": "current_stage_description",
+              "type": "string",
+              "description": "Current stage",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "primary_market",
+              "type": "string",
+              "description": "Primary market",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "target_market",
+              "type": "string",
+              "description": "CTarget market",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "target_revenue",
+              "type": "string",
+              "description": "Target revenue",
+              "required": false,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+                  "hundred",
+                  "five_hundred",
+                  "million",
+                  "universe"
+                ]
+              }
+            },
+            {
               "paramType": "header",
               "name": "Authorization",
               "type": "string",

@@ -15,18 +15,18 @@ class CompaniesController < ApplicationController
     param :form, :is_interested_in_marketplace, :boolean, :optional, "We are you interested in"
     param_list :form, :markets, :string, :optional, "", [:financial_markets]
     param :form, :founded_in, :integer, :optional, "Founded in"
-    param_list :form, :current_stage, :integer, :optional, "Company description"
-    param :form, :evaluation, :string, :optional, "Company description"
-    param :form, :is_revenue_consumer, :boolean, :optional, "Company description"
-    param :form, :is_revenue_wholesale, :boolean, :optional, "Company description"
-    param :form, :is_revenue_other, :boolean, :optional, "Company description"
-    param :form, :investor_deck_link, :string, :optional, "Company description"
-    param :form, :investor_deck_file, :string, :optional, "Company description"
-    param :form, :current_revenue, :integer, :optional, "Company description"
-    param :form, :current_stage_description, :string, :optional, "Company description"
-    param :form, :primary_market, :string, :optional, "Company description"
-    param :form, :target_market, :string, :optional, "Company description"
-    param :form, :target_revenue, :integer, :optional, "Company description"
+    param_list :form, :current_stage, :string, :optional, "Current stage", [:round_a, :round_b]
+    param :form, :evaluation, :string, :optional, "Evaluation"
+    param :form, :is_revenue_consumer, :boolean, :optional, "Source of revenue"
+    param :form, :is_revenue_wholesale, :boolean, :optional, "Source of revenue"
+    param :form, :is_revenue_other, :boolean, :optional, "Source of revenue"
+    param :form, :investor_deck_link, :string, :optional, "Investor deck"
+    param :form, :investor_deck_file, :string, :optional, "Investor deck"
+    param_list :form, :current_revenue, :string, :optional, "Current revenue", [:zero, :two_hundred, :million, :universe]
+    param :form, :current_stage_description, :string, :optional, "Current stage"
+    param :form, :primary_market, :string, :optional, "Primary market"
+    param :form, :target_market, :string, :optional, "CTarget market"
+    param_list :form, :target_revenue, :string, :optional, "Target revenue", [:hundred, :five_hundred, :million, :universe]
     param :header, 'Authorization', :string, :required, 'Authentication token'
     response :created
     response :unauthorized
