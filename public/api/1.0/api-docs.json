@@ -1,0 +1,28 @@
+{
+  "apiVersion": "1.0",
+  "swaggerVersion": "1.2",
+  "basePath": "https://venture-box-land.herokuapp.com",
+  "apis": [
+    {
+      "path": "/api/1.0/requests.{format}",
+      "description": "Request info"
+    },
+    {
+      "path": "/api/1.0/companies.{format}",
+      "description": "Startup company"
+    },
+    {
+      "path": "/api/1.0/users.{format}",
+      "description": "User"
+    },
+    {
+      "path": "/api/1.0/authentication.{format}",
+      "description": "Authentication"
+    }
+  ],
+  "authorizations": null,
+  "info": {
+    "title": "Venture Box",
+    "description": ""
+  }
+}
