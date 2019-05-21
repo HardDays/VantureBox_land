@@ -8,5 +8,5 @@ class Company < ApplicationRecord
   enum markets: [:financial_markets]
   enum current_stage: [:round_a, :round_b]
   enum current_revenue: [:zero, :two_hundred, :million, :universe]
-  enum target_revenue: [:hundred, :five_hundred, :one_million, :universe]
+  enum target_revenue: [:hundred, :five_hundred, :one_million, :more]
 end

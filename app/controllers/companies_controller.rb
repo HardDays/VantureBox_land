@@ -26,7 +26,7 @@ class CompaniesController < ApplicationController
     param :form, :current_stage_description, :string, :optional, "Current stage"
     param :form, :primary_market, :string, :optional, "Primary market"
     param :form, :target_market, :string, :optional, "CTarget market"
-    param_list :form, :target_revenue, :string, :optional, "Target revenue", [:hundred, :five_hundred, :one_million, :universe]
+    param_list :form, :target_revenue, :string, :optional, "Target revenue", [:hundred, :five_hundred, :one_million, :more]
     param :header, 'Authorization', :string, :required, 'Authentication token'
     response :created
     response :unauthorized
