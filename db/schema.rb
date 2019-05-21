@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_20_205332) do
+ActiveRecord::Schema.define(version: 2019_05_21_215134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,24 @@ ActiveRecord::Schema.define(version: 2019_05_20_205332) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_interested_in_access", default: false
+    t.boolean "is_interested_in_insights", default: false
+    t.boolean "is_interested_in_capital", default: false
+    t.boolean "is_interested_in_marketplace", default: false
+    t.integer "markets"
+    t.integer "founded_in"
+    t.integer "current_stage"
+    t.string "evaluation"
+    t.boolean "is_revenue_consumer", default: false
+    t.boolean "is_revenue_wholesale", default: false
+    t.boolean "is_revenue_other", default: false
+    t.string "investor_deck_link"
+    t.string "investor_deck_file"
+    t.integer "current_revenue"
+    t.string "current_stage_description"
+    t.string "primary_market"
+    t.string "target_market"
+    t.integer "target_revenue"
   end
 
   create_table "requests", force: :cascade do |t|

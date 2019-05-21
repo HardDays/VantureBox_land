@@ -1,18 +1,6 @@
 class CompaniesController < ApplicationController
-  before_action :authorize_user, only: [:create, :update, :destroy]
-  before_action :set_company, only: [:show, :update, :destroy]
+  before_action :authorize_user, only: [:create]
   swagger_controller :company, "Startup company"
-
-  # GET /companies/1
-  swagger_api :show do
-    summary "Retrieve company info"
-    param :path, :id, :integer, :required, "Company id"
-    response :ok
-    response :not_found
-  end
-  def show
-    render json: @company, status: :ok
-  end
 
   # POST /companies
   swagger_api :create do
@@ -21,6 +9,24 @@ class CompaniesController < ApplicationController
     param :form, :name, :string, :required, "Company name"
     param :form, :website, :string, :required, "Company website"
     param :form, :description, :string, :optional, "Company description"
+    param :form, :is_interested_in_access, :boolean, :optional, "We are you interested in"
+    param :form, :is_interested_in_insights, :boolean, :optional, "We are you interested in"
+    param :form, :is_interested_in_capital, :boolean, :optional, "We are you interested in"
+    param :form, :is_interested_in_marketplace, :boolean, :optional, "We are you interested in"
+    param_list :form, :markets, :string, :optional, "", [:financial_markets]
+    param :form, :founded_in, :integer, :optional, "Founded in"
+    param_list :form, :current_stage, :integer, :optional, "Company description"
+    param :form, :evaluation, :string, :optional, "Company description"
+    param :form, :is_revenue_consumer, :boolean, :optional, "Company description"
+    param :form, :is_revenue_wholesale, :boolean, :optional, "Company description"
+    param :form, :is_revenue_other, :boolean, :optional, "Company description"
+    param :form, :investor_deck_link, :string, :optional, "Company description"
+    param :form, :investor_deck_file, :string, :optional, "Company description"
+    param :form, :current_revenue, :integer, :optional, "Company description"
+    param :form, :current_stage_description, :string, :optional, "Company description"
+    param :form, :primary_market, :string, :optional, "Company description"
+    param :form, :target_market, :string, :optional, "Company description"
+    param :form, :target_revenue, :integer, :optional, "Company description"
     param :header, 'Authorization', :string, :required, 'Authentication token'
     response :created
     response :unauthorized
@@ -39,46 +45,6 @@ class CompaniesController < ApplicationController
     end
   rescue
     render json: {errors: :FAILED_SAVE_COMPANY}, status: :unprocessable_entity
-  end
-
-  # PATCH/PUT /companies/1
-  swagger_api :update do
-    summary "Update company info"
-    param :path, :user_id, :integer, :required, "Startup user id"
-    param :path, :id, :integer, :required, "Company id"
-    param :form, :name, :string, :optional, "Company name"
-    param :form, :website, :string, :optional, "Company website"
-    param :form, :description, :string, :optional, "Company description"
-    param :header, 'Authorization', :string, :required, 'Authentication token'
-    response :ok
-    response :unauthorized
-    response :not_found
-    response :forbidden
-    response :unprocessable_entity
-  end
-  def update
-    if @company.update(company_params)
-      render json: @company, status: :ok
-    else
-      render json: @company.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /companies/1
-  swagger_api :destroy do
-    summary "Delete company"
-    param :path, :user_id, :integer, :required, "Startup user id"
-    param :path, :id, :integer, :required, "Company id"
-    param :header, 'Authorization', :string, :required, 'Authentication token'
-    response :ok
-    response :unauthorized
-    response :not_found
-    response :forbidden
-  end
-  def destroy
-    @company.destroy
-
-    render status: :ok
   end
 
   private
@@ -103,6 +69,10 @@ class CompaniesController < ApplicationController
     end
 
     def company_params
-      params.permit(:name, :website, :description)
+      params.permit(:name, :website, :description, :is_interested_in_access, :is_interested_in_insights,
+                    :is_interested_in_capital, :is_interested_in_marketplace, :markets, :founded_in,
+                    :current_stage, :evaluation, :is_revenue_consumer, :is_revenue_wholesale, :is_revenue_other,
+                    :investor_deck_link, :investor_deck_file, :current_revenue, :current_stage_description,
+                    :primary_market, :target_market, :target_revenue)
     end
 end
