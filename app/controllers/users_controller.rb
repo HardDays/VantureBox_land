@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     response :unprocessable_entity
   end
   def create
-    User.transaction do
+    # User.transaction do
       @user = User.new(user_params)
 
       if @user.save
@@ -28,9 +28,9 @@ class UsersController < ApplicationController
       else
         render json: @user.errors, status: :unprocessable_entity
       end
-    end
-  rescue
-    render json: {errors: :FAILED_SAVE_USER}, status: :unprocessable_entity
+    # end
+  # rescue
+  #   render json: {errors: :FAILED_SAVE_USER}, status: :unprocessable_entity
   end
 
   private
