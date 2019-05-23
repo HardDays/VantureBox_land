@@ -22,5 +22,6 @@ production:
   encoding: unicode
   pool: 5
   timeout: 5000
-  username: postgres
+  username: <%= ENV['VENTURE_LAND_DB_USER'] %>
+  password: <%= ENV['VENTURE_LAND_DB_PASS'] %>
   database: venture_box_land
