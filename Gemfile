@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.4.4'
+#ruby '2.4.4'
 
 gem 'rails', '~> 5.2.3'
 gem 'pg', '~> 0.18'
@@ -37,3 +37,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'swagger-docs'
 gem 'rails_admin', '~> 1.3'
 gem 'therubyracer'
+
+gem 'thin'
