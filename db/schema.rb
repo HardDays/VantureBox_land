@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_21_220457) do
+ActiveRecord::Schema.define(version: 2019_05_25_175915) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_05_21_220457) do
     t.string "primary_market"
     t.string "target_market"
     t.integer "target_revenue"
+    t.boolean "is_cross_border_expantion", default: false
+    t.boolean "is_consumer_connect", default: false
   end
 
   create_table "requests", force: :cascade do |t|

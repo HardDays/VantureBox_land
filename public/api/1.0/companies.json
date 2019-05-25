@@ -181,6 +181,20 @@
             },
             {
               "paramType": "form",
+              "name": "is_consumer_connect",
+              "type": "boolean",
+              "description": "Is consumer connect",
+              "required": false
+            },
+            {
+              "paramType": "form",
+              "name": "is_cross_border_expantion",
+              "type": "boolean",
+              "description": "Is cross border expantion",
+              "required": false
+            },
+            {
+              "paramType": "form",
               "name": "target_revenue",
               "type": "string",
               "description": "Target revenue",

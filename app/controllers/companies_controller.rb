@@ -26,6 +26,8 @@ class CompaniesController < ApplicationController
     param :form, :current_stage_description, :string, :optional, "Current stage"
     param :form, :primary_market, :string, :optional, "Primary market"
     param :form, :target_market, :string, :optional, "CTarget market"
+    param :form, :is_consumer_connect, :boolean, :optional, "Is consumer connect"
+    param :form, :is_cross_border_expantion, :boolean, :optional, "Is cross border expantion"
     param_list :form, :target_revenue, :string, :optional, "Target revenue", [:hundred, :five_hundred, :one_million, :more]
     param :header, 'Authorization', :string, :required, 'Authentication token'
     response :created
@@ -73,6 +75,6 @@ class CompaniesController < ApplicationController
                     :is_interested_in_capital, :is_interested_in_marketplace, :markets, :founded_in,
                     :current_stage, :evaluation, :is_revenue_consumer, :is_revenue_wholesale, :is_revenue_other,
                     :investor_deck_link, :investor_deck_file, :current_revenue, :current_stage_description,
-                    :primary_market, :target_market, :target_revenue)
+                    :primary_market, :target_market, :target_revenue, :is_consumer_connect, :is_cross_border_expantion)
     end
 end
