@@ -17,11 +17,17 @@ test:
   <<: *default
   database: venture_box_land_test
 
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   pool: 5
+#   timeout: 5000
+#   username: <%= ENV['VENTURE_LAND_DB_USER'] %>
+#   password: <%= ENV['VENTURE_LAND_DB_PASS'] %>
+#   database: venture_box_land
+
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  timeout: 5000
-  username: <%= ENV['VENTURE_LAND_DB_USER'] %>
-  password: <%= ENV['VENTURE_LAND_DB_PASS'] %>
-  database: venture_box_land
+  <<: *default
+  database: betrip_production
+  username: betrip_root
+  password: <%= ENV['DATABASE_URL'] %>
