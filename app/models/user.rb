@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validate :check_old, if: :password_changed?, on: :update
   attr_accessor :old_password
 
-  enum role: [:ceo]
+  enum role: [:ceo, :cto, :cfo, :cio, :coo, :cco, :cko, :cso, :cdo, :cmo]
 
   has_many :tokens, dependent: :destroy
   has_one :company, dependent: :destroy
