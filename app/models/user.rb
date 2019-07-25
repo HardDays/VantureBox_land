@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates_confirmation_of :password, message: 'NOT_MATCHED'
   attr_accessor :password_confirmation
 
-  enum role: [:ceo]
+  enum role: [:ceo, :cto, :cfo, :cio, :coo, :cco, :cko, :cso, :cdo, :cmo]
 
   has_one :company, dependent: :destroy
 

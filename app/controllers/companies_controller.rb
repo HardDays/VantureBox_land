@@ -38,7 +38,7 @@ class CompaniesController < ApplicationController
     response :unprocessable_entity
   end
   def create
-    Company.transaction do
+    #Company.transaction do
       @company = Company.new(company_params)
       @company.user_id = @user.id
 
@@ -47,9 +47,9 @@ class CompaniesController < ApplicationController
       else
         render json: @company.errors, status: :unprocessable_entity
       end
-    end
-  rescue
-    render json: {errors: :FAILED_SAVE_COMPANY}, status: :unprocessable_entity
+   # end
+  #rescue
+   # render json: {errors: :FAILED_SAVE_COMPANY}, status: :unprocessable_entity
   end
 
   private
