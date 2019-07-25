@@ -4,11 +4,4 @@ Rails.application.routes.draw do
   resources :users, only: [:create] do
     resources :companies, only: [:create]
   end
-
-  resources :authentication, path: "auth", only: [] do
-    collection do
-      post :login
-      post :logout
-    end
-  end
 end

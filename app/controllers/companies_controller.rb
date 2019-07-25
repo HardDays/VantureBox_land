@@ -6,8 +6,10 @@ class CompaniesController < ApplicationController
   swagger_api :create do
     summary "Create company"
     param :path, :user_id, :integer, :required, "Startup user id"
-    param :form, :name, :string, :required, "Company name"
+    param :form, :company_name, :string, :required, "Company name"
     param :form, :website, :string, :required, "Company website"
+    param :form, :company_email, :string, :required, "Company email"
+    param :form, :company_logo, :string, :required, "Company logo base 65"
     param :form, :description, :string, :optional, "Company description"
     param :form, :is_interested_in_access, :boolean, :optional, "We are you interested in"
     param :form, :is_interested_in_insights, :boolean, :optional, "We are you interested in"
@@ -16,6 +18,7 @@ class CompaniesController < ApplicationController
     param_list :form, :markets, :string, :optional, "", [:financial_markets]
     param :form, :founded_in, :integer, :optional, "Founded in"
     param_list :form, :current_stage, :string, :optional, "Current stage", [:round_a, :round_b]
+    param :form, :investment, :string, :optional, "Investment"
     param :form, :evaluation, :string, :optional, "Evaluation"
     param :form, :is_revenue_consumer, :boolean, :optional, "Source of revenue"
     param :form, :is_revenue_wholesale, :boolean, :optional, "Source of revenue"
@@ -71,10 +74,12 @@ class CompaniesController < ApplicationController
     end
 
     def company_params
-      params.permit(:name, :website, :description, :is_interested_in_access, :is_interested_in_insights,
-                    :is_interested_in_capital, :is_interested_in_marketplace, :markets, :founded_in,
-                    :current_stage, :evaluation, :is_revenue_consumer, :is_revenue_wholesale, :is_revenue_other,
+      params.permit(:company_name, :website, :company_email, :company_logo, :description,
+                    :is_interested_in_access, :is_interested_in_insights, :is_interested_in_capital,
+                    :is_interested_in_marketplace, :markets, :founded_in, :current_stage, :investment,
+                    :evaluation, :is_revenue_consumer, :is_revenue_wholesale, :is_revenue_other,
                     :investor_deck_link, :investor_deck_file, :current_revenue, :current_stage_description,
-                    :primary_market, :target_market, :target_revenue, :is_consumer_connect, :is_cross_border_expantion)
+                    :primary_market, :target_market, :is_consumer_connect, :is_cross_border_expantion,
+                    :target_revenue)
     end
 end

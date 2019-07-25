@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_25_175915) do
+ActiveRecord::Schema.define(version: 2019_07_25_125632) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
-    t.string "name"
+    t.string "company_name"
     t.string "website"
     t.string "description"
     t.integer "user_id"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2019_05_25_175915) do
     t.integer "target_revenue"
     t.boolean "is_cross_border_expantion", default: false
     t.boolean "is_consumer_connect", default: false
+    t.string "company_logo"
+    t.string "company_email"
+    t.integer "investment"
   end
 
   create_table "requests", force: :cascade do |t|

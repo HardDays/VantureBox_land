@@ -19,7 +19,7 @@
             },
             {
               "paramType": "form",
-              "name": "name",
+              "name": "company_name",
               "type": "string",
               "description": "Company name",
               "required": true
@@ -29,6 +29,20 @@
               "name": "website",
               "type": "string",
               "description": "Company website",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "company_email",
+              "type": "string",
+              "description": "Company email",
+              "required": true
+            },
+            {
+              "paramType": "form",
+              "name": "company_logo",
+              "type": "string",
+              "description": "Company logo base 65",
               "required": true
             },
             {
@@ -99,6 +113,13 @@
                   "round_b"
                 ]
               }
+            },
+            {
+              "paramType": "form",
+              "name": "investment",
+              "type": "string",
+              "description": "Investment",
+              "required": false
             },
             {
               "paramType": "form",

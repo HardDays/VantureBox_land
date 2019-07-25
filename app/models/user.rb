@@ -8,12 +8,8 @@ class User < ApplicationRecord
   validates_confirmation_of :password, message: 'NOT_MATCHED'
   attr_accessor :password_confirmation
 
-  validate :check_old, if: :password_changed?, on: :update
-  attr_accessor :old_password
-
   enum role: [:ceo]
 
-  has_many :tokens, dependent: :destroy
   has_one :company, dependent: :destroy
 
   SALT = ENV.fetch("PASSWORD_SALT")
@@ -24,14 +20,6 @@ class User < ApplicationRecord
 
   def encrypt
     self.password = User.encrypt_password(self.password) if self.password
-  end
-
-  def check_old
-    if self.old_password != nil
-      errors.add(:old_password, 'NOT_MACHED') if User.find(id).password != User.encrypt_password(self.old_password)
-    else
-      errors.add(:old_password, 'MUST_EXIST')
-    end
   end
 
   def as_json(options={})

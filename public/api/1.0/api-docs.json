@@ -14,10 +14,6 @@
     {
       "path": "/api/1.0/users.{format}",
       "description": "User"
-    },
-    {
-      "path": "/api/1.0/authentication.{format}",
-      "description": "Authentication"
     }
   ],
   "authorizations": null,
